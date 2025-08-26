@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #873F49 0%, #55161e 100%);
+    padding: 20px;
+    height: 100vh;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: #a0515bcc;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.image {
+    border-radius: 8px;
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:rgb(255, 255, 255)
+}

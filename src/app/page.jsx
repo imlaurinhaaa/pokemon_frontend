@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-pink-200 p-8 flex items-center justify-center">
       <div className="bg-white/70 w-2xl h-150 rounded-xl flex items-center flex-col shadow-lg hover:scale-105 transition-all duration-300 ease-in-out">
-        <h1 className="text-3xl font-bold text-center p-6 mt-6 text-pink-400">Bem-vindo ao Wine API 🍷</h1>
+        <h1 className="text-3xl font-bold text-center p-6 mt-6 text-pink-400">Bem-vindo Poke API ⚡</h1>
         <div className="flex justify-center">
           <Image src="/images/laura.jpeg" alt="Aluna Laura" width={250} height={250} className="rounded-full" />
         </div>

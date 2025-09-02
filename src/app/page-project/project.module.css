@@ -1,29 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 .container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    background: linear-gradient(135deg, #873F49 0%, #55161e 100%);
-    padding: 20px;
-    height: 100vh;
+    background: linear-gradient(135deg, #525252 0%, #000000 100%);
 }
 
-.content {
+.imgSection {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    background-color: #a0515bcc;
-    border-radius: 8px;
-    padding: 20px;
 }
 
 .image {
-    border-radius: 8px;
+    border-radius: 10px 10px 0 0;
 }
 
-.infoSection {
-    display: flex;
+.content {
+ display: flex;
     flex-direction: column;
+    background: #ffffff41;
+    padding: 30px;
+    border-radius: 0 0 10px 10px;
+    width: 62.4rem;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.title {
+    font-family: "Press Start 2P", system-ui;
+    color: #ffffff;
+    font-size: 2.5rem;
+}
+
+.subTitle {
+    font-family: "Press Start 2P", system-ui;
+    color: #ffffff;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-family: "Fredoka", sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.listItem {
+    font-family: "Fredoka", sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.code {
+    font-family: "Fredoka", sans-serif;
+    color: #ffffff;
+    font-size: 1rem;
+    background: #333333;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.buttonSection {
+    display: flex;
     justify-content: center;
-    color:rgb(255, 255, 255)
+    align-items: center;
+    margin-top: 2rem;
+    gap: 5rem;
+}
+
+.button {
+    font-family: "Press Start 2P", system-ui;
+    background: #000000;
+    color: #ffffff;
+    padding: 12px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #777777;
 }

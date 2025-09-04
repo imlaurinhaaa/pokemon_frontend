@@ -18,7 +18,7 @@ export default function pageProjeto() {
       <div className={styles.content}>
         <h1 className={styles.title}>⚡ Sobre Pokemon API</h1>
         <p className={styles.description}>
-          Encontrada em <a href="https://pokeapi.co/">PokéAPI</a> para fins
+          Encontrada em <span className={styles.span}><a href="https://pokeapi.co/">PokéAPI</a></span> para fins
           educacionais. A PokeAPI é uma API pública que fornece dados sobre o
           universo Pokémon. Ela disponibiliza informações detalhadas sobre os
           Pokémon, incluindo seus nomes, tipos, movimentos, habilidades,
@@ -54,16 +54,16 @@ export default function pageProjeto() {
         </code>
         <div className={styles.buttonSection}>
           <Link
-            href="/page-project"
+            href="/"
             className={styles.button}
           >
-            Sobre API
+            Página Inicial
           </Link>
           <Link
             href="/page-api"
             className={styles.button}
           >
-            Wine API
+            Pokemon API
           </Link>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import styles from './not-found.module.css'
 
 export default function NotFound() {
@@ -11,6 +12,9 @@ export default function NotFound() {
                 </div>
                 <h1 className={styles.title}>Página não encontrada</h1>
                 <p className={styles.description}>Ops! A página que você está procurando não existe ou foi movida para outro local.</p>
+                <div className={styles.buttonContainer}>
+                <Link href="/" className={styles.button}>Voltar para a página inicial</Link>
+                </div>
             </div>
         </div>
   )

@@ -13,7 +13,7 @@ export default function Home() {
         <p className="text-center w-120 mt-6">Meu nome é Laura Ferreira Violla, tenho 17 anos e sou estudante de Desenvolvimento de Sistemas SENAI Valinhos. Com a ajuda dos docentes Thiago Ferreira e Marcelo Carboni estou desenvolvendo este projeto utilizando uma API gratuita.</p>
         <div className="flex items-center justify-center mt-6 space-x-4">
           <Link href="/page-project" className="bg-pink-400 text-white px-4 py-2 rounded-md hover:bg-pink-500 transition-colors duration-300">Sobre API</Link>
-          <Link href="/page-api" className="bg-pink-400 text-white px-4 py-2 rounded-md hover:bg-pink-500 transition-colors duration-300">Wine API</Link>
+          <Link href="/page-api" className="bg-pink-400 text-white px-4 py-2 rounded-md hover:bg-pink-500 transition-colors duration-300">Pokemon API</Link>
         </div>
       </div>
     </div>

@@ -91,3 +91,8 @@
 .button:hover {
     background: #777777;
 }
+
+.span {
+    color: #ffffff;
+    font-weight: 700;
+}

@@ -11,7 +11,7 @@
     text-align: center;
     background: white;
     border-radius: 1.5rem;
-    padding: 2rem;
+    padding: 3rem;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
     max-width: 500px;
     width: 100%;
@@ -54,4 +54,26 @@
     line-height: 1.6;
     max-width: 400px;
     margin: 0 auto;
+}
+
+.buttonContainer {
+    margin-top: 2rem;
+}
+
+.button {
+    padding: 12px 16px;
+    margin-top: 2rem;
+    background-color: #ff00b3;
+    color: white;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.button:hover {
+    color: #ff00b3;
+    background-color: #ffffff;
+    transform: translateY(-2px) scale(1.04);
 }

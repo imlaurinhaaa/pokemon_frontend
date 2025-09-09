@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.normal {background: linear-gradient(180deg, #000000 40%, #A8A878 80%);}
+.fire {background: linear-gradient(180deg, #000000 40%, #F08030 80%);}
+.water {background: linear-gradient(180deg, #000000 40%, #6890F0 80%);}
+.electric {background: linear-gradient(180deg, #000000 40%, #F8D030 80%);}
+.grass {background: linear-gradient(180deg, #000000 40%, #78C850 80%);}
+.ice {background: linear-gradient(180deg, #000000 40%, #98D8D8 80%);}
+.fighting {background: linear-gradient(180deg, #000000 40%, #C03028 80%);}
+.poison {background: linear-gradient(180deg, #000000 40%, #A040A0 80%);}
+.ground {background: linear-gradient(180deg, #000000 40%, #E0C068 80%);}
+.flying {background: linear-gradient(180deg, #000000 40%, #A890F0 80%);}
+.psychic {background: linear-gradient(180deg, #000000 40%, #F85888 80%);}
+.bug {background: linear-gradient(180deg, #000000 40%, #A8B820 80%);}
+.rock {background: linear-gradient(180deg, #000000 40%, #B8A038 80%);}
+.ghost {background: linear-gradient(180deg, #000000 40%, #705898 80%);}
+.dark {background: linear-gradient(180deg, #000000 40%, #705848 80%);}
+.dragon {background: linear-gradient(180deg, #000000 40%, #7038F8 80%);}
+.steel {background: linear-gradient(180deg, #000000 40%, #B8B8D0 80%);}
+.fairy {background: linear-gradient(180deg, #000000 40%, #F0B6D1 80%);}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    height: 100vh;
+}
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.loadingImage {
+    border-radius: 10px;
+}
+
+.loadingText {
+    font-family: "Press Start 2P", system-ui;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #b44343;
+    padding: 1.5rem;
+    width: 40%;
+    height: 55rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}

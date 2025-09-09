@@ -6,19 +6,20 @@ import styles from "./api.module.css";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useState, useEffect } from "react";
-import { Spin, Pagination } from "antd";
+import { Pagination } from "antd";
+import PokemonCard from "@/components/PokemonCard";
 
 export default function PageAPI() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(8);
+    const [pageSize, setPageSize] = useState(10);
 
     const fetchPokemons = async () => {
         setLoading(true);
         try {
             const response = await axios.get(
-                "https://pokeapi.co/api/v2/pokemon?limit=50&offset=0"
+                "https://pokeapi.co/api/v2/pokemon?offset=0&limit=100"
             );
             const detailedPokemons = await Promise.all(
                 response.data.results.map(async (pokemon) => {
@@ -58,7 +59,6 @@ export default function PageAPI() {
         setCurrentPage(1);
     };
 
-
     return (
         <div className={styles.container}>
             <header className={styles.header}>
@@ -85,10 +85,10 @@ export default function PageAPI() {
                             Página Inicial
                         </Link>
                         <Link
-                            href="/page-api"
+                            href="/page-project"
                             className={styles.button}
                         >
-                            Pokemon API
+                            Sobre API
                         </Link>
                     </div>
                 </div>
@@ -115,36 +115,28 @@ export default function PageAPI() {
                 </div>
             ) : (
                 <>
-                    <div className={styles.pagination}>
-                        <Pagination
-                            total={pokemons.length}
-                            pageSize={pageSize}
-                            current={currentPage}
-                            showSizeChanger={true}
-                            pageSizeOptions={["8", "16", "20"]}
-                            onChange={handlePageChange}
-                            onShowSizeChange={handlePageSizeChange}
-                        />
-                    </div>
+                    <div className={styles.pokemons}>
+                        <div className={styles.pagination}>
+                            <Pagination
+                                total={pokemons.length}
+                                pageSize={pageSize}
+                                current={currentPage}
+                                showSizeChanger={true}
+                                pageSizeOptions={["10", "20", "30", "40", "50"]}
+                                onChange={handlePageChange}
+                                onShowSizeChange={handlePageSizeChange}
+                            />
+                        </div>
 
-                    <div className={styles.cardsContainer}>
-                        {currentPokemons.map((pokemon, index) => (
-                            <div
-                                key={index}
-                                className={styles.pokemonCard}
-                            >
-                                <div className={styles.cardContent}>
-                                    <img
-                                        src={pokemon.sprites.front_default}
-                                        alt={pokemon.name}
-                                        className={styles.pokemonImage}
+                        <div className={styles.cardsContainer}>
+                            {currentPokemons.map((pokemon, index) => (
+                                <PokemonCard
+                                    key={index}
+                                    pokemon={pokemon}
+                                    type={pokemon.types[0].type.name}
                                     />
-                                    <h3 className={styles.pokemonName}>{pokemon.name}</h3>
-                                    <p className={styles.pokemonInfo}>Tipo: {pokemon.types.map((t) => t.type.name).join(", ")}</p>
-
-                                </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </>
             )}

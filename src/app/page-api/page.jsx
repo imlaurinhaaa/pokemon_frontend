@@ -13,13 +13,13 @@ export default function PageAPI() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(10);
+    const [pageSize, setPageSize] = useState(100);
 
     const fetchPokemons = async () => {
         setLoading(true);
         try {
             const response = await axios.get(
-                "https://pokeapi.co/api/v2/pokemon?offset=0&limit=100"
+                "https://pokeapi.co/api/v2/pokemon?offset=0&limit=720"
             );
             const detailedPokemons = await Promise.all(
                 response.data.results.map(async (pokemon) => {
@@ -122,7 +122,7 @@ export default function PageAPI() {
                                 pageSize={pageSize}
                                 current={currentPage}
                                 showSizeChanger={true}
-                                pageSizeOptions={["10", "20", "30", "40", "50"]}
+                                pageSizeOptions={["100", "200", "300", "400", "500", "600", "720"]}
                                 onChange={handlePageChange}
                                 onShowSizeChange={handlePageSizeChange}
                             />

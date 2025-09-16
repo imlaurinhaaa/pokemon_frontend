@@ -9,7 +9,13 @@ import { toast } from "react-toastify";
 export default function PokemonDetailsPage({ params }) {
     const [pokemon, setPokemon] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [description, setDescription] = useState(""); // Para armazenar a descrição
+    const [description, setDescription] = useState("");
+    const images = pokemon
+    ? [
+        pokemon.sprites.front_default,
+        pokemon.sprites.back_default,
+    ].filter(Boolean)
+    : [];
 
     const fetchPokemon = async (pokemonId) => {
         setLoading(true);
@@ -26,7 +32,7 @@ export default function PokemonDetailsPage({ params }) {
 
     const fetchDescription = async (speciesUrl) => {
         try {
-            const response = await fetch(speciesUrl);                                                                                               
+            const response = await fetch(speciesUrl);
             const data = await response.json();
             const englishDescription = data.flavor_text_entries.find(
                 (entry) => entry.language.name === "en"
@@ -50,6 +56,16 @@ export default function PokemonDetailsPage({ params }) {
             fetchDescription(pokemon.species.url);
         }
     }, [pokemon?.species?.url]);
+
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 1000);
+        return () => clearInterval(interval);
+    }, [images.length]);
+
 
     if (loading) {
         return (
@@ -82,26 +98,35 @@ export default function PokemonDetailsPage({ params }) {
     }
 
     return (
-        <div className={styles.container}>
-            <div className={`${styles.card} ${styles[pokemon.types[0].type.name]}`}>
-                <div className={styles.cardContent}>
-                    <div className={styles.presentation}>
-                        <h1 className={styles.title}>{pokemon.name}</h1>
-                        <img
-                            src={pokemon.sprites.front_default}
-                            alt={pokemon.name}
-                            className={styles.pokemonImage}
-                        />
-                    </div>
-                    <div className={styles.information}>
-                        <h2 className={styles.subtitle}>Detalhes</h2>
-                        <p className={styles.info}>ID: {pokemon.id}</p>
-                        <p className={styles.info}>Altura: {pokemon.height / 10} m</p>
-                        <p className={styles.info}>Peso: {pokemon.weight / 10} kg</p>
-                        <p className={styles.info}>Tipo: {pokemon.types.map((t) => t.type.name).join(", ")}</p>
-                        <p className={styles.info}>Descrição: {description}</p>
-                    </div>
-                </div>
+        <div className={`${styles.container} ${styles[pokemon.types[0].type.name]}`}>
+            <div className={styles.presentation}>
+                <h1 className={styles.title}>{pokemon.name}</h1>
+                <img
+                    src={images[currentImage]}
+                    alt={pokemon.name}
+                    className={styles.pokemonImage}
+                />
+            </div>
+            <div className={styles.information}>
+                <h2 className={styles.subtitle}>Detalhes</h2>
+                <p className={styles.info}>Nº Pokédex: {pokemon.id}</p>
+                <p className={styles.info}>Altura: {pokemon.height / 10} m</p>
+                <p className={styles.info}>Peso: {pokemon.weight / 10} kg</p>
+                <p className={styles.info}>Tipo: {pokemon.types.map((t) => t.type.name).join(", ")}</p>
+                <p className={styles.info}>Descrição: {description}</p>
+                <p className={styles.info}>Experiência Base: {pokemon.base_experience}</p>
+                <p className={styles.info}>Habilidades: {pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
+                <p className={styles.info}>Movimentos: {pokemon.moves.slice(0, 5).map((m) => m.move.name).join(", ")}</p>
+                <p className={styles.info}>Shiny: <img src={pokemon.sprites.front_shiny} alt={pokemon.name} width="80" /></p>
+            </div>
+            <div className={styles.battle}>
+                <h2 className={styles.subtitle}>Estatísticas de Batalha</h2>
+                <p className={styles.info}>HP: {pokemon.stats.find((s) => s.stat.name === "hp").base_stat}</p>
+                <p className={styles.info}>Ataque: {pokemon.stats.find((s) => s.stat.name === "attack").base_stat}</p>
+                <p className={styles.info}>Defesa: {pokemon.stats.find((s) => s.stat.name === "defense").base_stat}</p>
+                <p className={styles.info}>Ataque Especial: {pokemon.stats.find((s) => s.stat.name === "special-attack").base_stat}</p>
+                <p className={styles.info}>Defesa Especial: {pokemon.stats.find((s) => s.stat.name === "special-defense").base_stat}</p>
+                <p className={styles.info}>Velocidade: {pokemon.stats.find((s) => s.stat.name === "speed").base_stat}</p>
             </div>
         </div>
     );

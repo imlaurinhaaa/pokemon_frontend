@@ -107,7 +107,7 @@ export default function PokemonDetailsPage({ params }) {
                     className={styles.pokemonImage}
                 />
             </div>
-            <div className={styles.information}>
+            <div className={`${styles.information} ${styles[pokemon.types[0].type.name]}`}>
                 <h2 className={styles.subtitle}>Detalhes</h2>
                 <p className={styles.info}>Nº Pokédex: {pokemon.id}</p>
                 <p className={styles.info}>Altura: {pokemon.height / 10} m</p>

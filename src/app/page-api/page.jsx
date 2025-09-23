@@ -1,11 +1,10 @@
 "use client";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./api.module.css";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useState, useEffect } from "react";
 import { Pagination } from "antd";
 import PokemonCard from "@/components/PokemonCard";
 
@@ -13,7 +12,8 @@ export default function PageAPI() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(100);
+    const [pageSize, setPageSize] = useState(50);
+    const [searchTerm, setSearchTerm] = useState(""); // estado da busca
 
     const fetchPokemons = async () => {
         setLoading(true);
@@ -46,9 +46,14 @@ export default function PageAPI() {
         fetchPokemons();
     }, []);
 
+    // Filtra por nome conforme o termo de busca
+    const filteredPokemons = pokemons.filter(p =>
+        p.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    const currentPokemons = pokemons.slice(startIndex, endIndex);
+    const currentPokemons = filteredPokemons.slice(startIndex, endIndex);
 
     const handlePageChange = (page) => {
         setCurrentPage(page);
@@ -62,7 +67,7 @@ export default function PageAPI() {
     return (
         <div className={styles.container}>
             <header className={styles.header}>
-                <Image src="/images/pokemon.png" alt="Logo" width={250} height={250} />
+                <Image src="/images/pokemon.png" alt="Logo" width={400} height={400} />
             </header>
             <div className={styles.content}>
                 <div className={styles.textSection}>
@@ -82,7 +87,7 @@ export default function PageAPI() {
                             href="/"
                             className={styles.button}
                         >
-                            Página Inicial
+                            Criar Pokédex
                         </Link>
                         <Link
                             href="/page-project"
@@ -117,8 +122,27 @@ export default function PageAPI() {
                 <>
                     <div className={styles.pokemons}>
                         <div className={styles.pagination}>
+                            <div className={styles.inputContainer}>
+                                <Image
+                                    src="/images/pokeball.png"
+                                    alt="Ícone de busca"
+                                    width={80}
+                                    height={80}
+                                    className={styles.icon}
+                                />
+                                <input
+                                    type="text"
+                                    placeholder="Buscar Pokemons"
+                                    className={styles.input}
+                                    value={searchTerm}
+                                    onChange={(e) => {
+                                        setSearchTerm(e.target.value);
+                                        setCurrentPage(1); // reseta para a primeira página ao buscar
+                                    }}
+                                />
+                            </div>
                             <Pagination
-                                total={pokemons.length}
+                                total={filteredPokemons.length} // usa a lista filtrada
                                 pageSize={pageSize}
                                 current={currentPage}
                                 showSizeChanger={true}
@@ -134,7 +158,7 @@ export default function PageAPI() {
                                     key={index}
                                     pokemon={pokemon}
                                     type={pokemon.types[0].type.name}
-                                    />
+                                />
                             ))}
                         </div>
                     </div>

@@ -16,9 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 4rem;
     gap: 12rem;
-    margin-bottom: 3rem;
 }
 
 .textSection {
@@ -54,7 +52,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 2rem;
-    gap: 4rem;
+    gap: 6rem;
 }
 
 .button {
@@ -95,9 +93,14 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 2rem;
-    background-color: #000000;
-
+    background: linear-gradient(180deg,
+            #f3f3f3 0%,
+            #a0a0a0 10%,
+            #808080 20%,
+            #606060 30%,
+            #505050 40%,
+            #404040 60%,
+            #000000 100%);
 }
 
 .pagination {
@@ -105,7 +108,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
-    margin-bottom: 3rem;;
+    margin-bottom: 3rem;
+    ;
 }
 
 .cardsContainer {
@@ -117,3 +121,18 @@
     margin-bottom: 2rem;
 }
 
+.inputContainer {
+    display: flex;
+    align-items: center;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.input {
+    font-family: "Press Start 2P", system-ui;
+    border: none;
+    outline: none;
+    background: none;
+    color: #000000;
+    font-size: 12px;
+}

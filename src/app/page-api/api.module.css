@@ -75,6 +75,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 4rem;
+    margin-bottom: 4rem;
 }
 
 .loadingImage {
@@ -94,7 +95,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(180deg,
-            #f3f3f3 0%,
+            #fdfdfd 0%,
             #a0a0a0 10%,
             #808080 20%,
             #606060 30%,
@@ -108,8 +109,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 3rem;
-    margin-bottom: 3rem;
-    ;
+    margin-bottom: 3rem;;
 }
 
 .cardsContainer {
@@ -135,4 +135,17 @@
     background: none;
     color: #000000;
     font-size: 12px;
+}
+
+@media (min-width: 1024px) {
+.cardsContainer {
+    width: 80%;
+}
+.content {
+    gap: 4rem;
+}
+.image {
+    width: 18rem;
+    height: auto;
+}
 }

@@ -107,26 +107,34 @@ export default function PokemonDetailsPage({ params }) {
                     className={styles.pokemonImage}
                 />
             </div>
+            <div className={styles.details}>
             <div className={`${styles.information} ${styles[pokemon.types[0].type.name]}`}>
-                <h2 className={styles.subtitle}>Detalhes</h2>
-                <p className={styles.info}>Nº Pokédex: {pokemon.id}</p>
-                <p className={styles.info}>Altura: {pokemon.height / 10} m</p>
-                <p className={styles.info}>Peso: {pokemon.weight / 10} kg</p>
-                <p className={styles.info}>Tipo: {pokemon.types.map((t) => t.type.name).join(", ")}</p>
-                <p className={styles.info}>Descrição: {description}</p>
-                <p className={styles.info}>Experiência Base: {pokemon.base_experience}</p>
-                <p className={styles.info}>Habilidades: {pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
-                <p className={styles.info}>Movimentos: {pokemon.moves.slice(0, 5).map((m) => m.move.name).join(", ")}</p>
-                <p className={styles.info}>Shiny: <img src={pokemon.sprites.front_shiny} alt={pokemon.name} width="80" /></p>
+                <h2 className={styles.subtitle}>Detalhes de {pokemon.name}</h2>
+                <p className={styles.info}><strong>Nº Pokédex:</strong> {pokemon.id}</p>
+                <p className={styles.info}><strong>Altura:</strong> {pokemon.height / 10} m</p>
+                <p className={styles.info}><strong>Peso:</strong> {pokemon.weight / 10} kg</p>
+                <p className={styles.info}><strong>Tipo:</strong> {pokemon.types.map((t) => t.type.name).join(", ")}</p>
+                <p className={styles.info}><strong>Descrição:</strong> {description}</p>
+                <p className={styles.info}><strong>Experiência Base:</strong> {pokemon.base_experience}</p>
+                <p className={styles.info}><strong>Habilidades:</strong> {pokemon.abilities.map((a) => a.ability.name).join(", ")}</p>
+                <p className={styles.info}><strong>Movimentos:</strong> {pokemon.moves.slice(0, 5).map((m) => m.move.name).join(", ")}</p>
+                <p className={styles.info}><strong>Shiny:</strong> <img className={styles.pokemonShiny} src={pokemon.sprites.front_shiny} alt={pokemon.name} width="80" /></p>
             </div>
-            <div className={styles.battle}>
+            <div className={styles.information}>
                 <h2 className={styles.subtitle}>Estatísticas de Batalha</h2>
-                <p className={styles.info}>HP: {pokemon.stats.find((s) => s.stat.name === "hp").base_stat}</p>
-                <p className={styles.info}>Ataque: {pokemon.stats.find((s) => s.stat.name === "attack").base_stat}</p>
-                <p className={styles.info}>Defesa: {pokemon.stats.find((s) => s.stat.name === "defense").base_stat}</p>
-                <p className={styles.info}>Ataque Especial: {pokemon.stats.find((s) => s.stat.name === "special-attack").base_stat}</p>
-                <p className={styles.info}>Defesa Especial: {pokemon.stats.find((s) => s.stat.name === "special-defense").base_stat}</p>
-                <p className={styles.info}>Velocidade: {pokemon.stats.find((s) => s.stat.name === "speed").base_stat}</p>
+                <p className={styles.info}><strong>HP:</strong> {pokemon.stats.find((s) => s.stat.name === "hp").base_stat}</p>
+                <p className={styles.info}><strong>Ataque:</strong> {pokemon.stats.find((s) => s.stat.name === "attack").base_stat}</p>
+                <p className={styles.info}><strong>Defesa:</strong> {pokemon.stats.find((s) => s.stat.name === "defense").base_stat}</p>
+                <p className={styles.info}><strong>Ataque Especial:</strong> {pokemon.stats.find((s) => s.stat.name === "special-attack").base_stat}</p>
+                <p className={styles.info}><strong>Defesa Especial:</strong> {pokemon.stats.find((s) => s.stat.name === "special-defense").base_stat}</p>
+                <p className={styles.info}><strong>Velocidade:</strong> {pokemon.stats.find((s) => s.stat.name === "speed").base_stat}</p>
+            </div>
+            </div>
+
+            <div className={`${styles.button} ${styles[pokemon.types[0].type.name]}`}>
+                <Link href="/page-api">
+                    Voltar
+                </Link>
             </div>
         </div>
     );

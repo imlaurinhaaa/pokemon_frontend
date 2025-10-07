@@ -18,7 +18,6 @@
 .fairy {background: linear-gradient(180deg, #000000 40%, #F0B6D1 80%);}
 
 .pokemonCard {
-    border: 2px solid #ffffff;
     border-radius: 20px;
     padding: 1.5rem;
     height: 22rem;;

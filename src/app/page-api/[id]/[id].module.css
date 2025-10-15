@@ -1,24 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Press+Start+2P&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-.normal {background: rgba(168, 168, 120, 0.5);}
-.fire {background: rgba(240, 128, 48, 0.5);}
-.water {background: rgba(104, 144, 240, 0.5);}
-.electric {background: rgba(248, 208, 48, 0.5);}
-.grass {background: rgba(120, 200, 80, 0.5);}
-.ice {background: rgba(152, 216, 216, 0.5);}
-.fighting {background: rgba(192, 48, 40, 0.5);}
-.poison {background: rgba(160, 64, 160, 0.5);}
-.ground {background: rgba(224, 192, 104, 0.5);}
-.flying {background: rgba(168, 144, 240, 0.5);}
-.psychic {background: rgba(248, 88, 136, 0.5);}
-.bug {background: rgba(168, 184, 32, 0.5);}
-.rock {background: rgba(184, 160, 56, 0.5);}
-.ghost {background: rgba(112, 88, 152, 0.5);}
-.dark {background: rgba(112, 88, 72, 0.5);}
-.dragon {background: rgba(112, 56, 248, 0.5);}
-.steel {background: rgba(184, 184, 208, 0.5);}
-.fairy {background: rgba(240, 182, 209, 0.5);}
+.normal { background: linear-gradient(180deg, #6B6B3A 40%, #A8A878 80%); }
+.fire { background: linear-gradient(180deg, #8B3E16 40%, #F08030 80%); }
+.water { background: linear-gradient(180deg, #335FBF 40%, #6890F0 80%); }
+.electric { background: linear-gradient(180deg, #B48A16 40%, #F8D030 80%); }
+.grass { background: linear-gradient(180deg, #4E8B2A 40%, #78C850 80%); }
+.ice { background: linear-gradient(180deg, #5AA9A9 40%, #98D8D8 80%); }
+.fighting { background: linear-gradient(180deg, #701614 40%, #C03028 80%); }
+.poison { background: linear-gradient(180deg, #6E2E6E 40%, #A040A0 80%); }
+.ground { background: linear-gradient(180deg, #B08A30 40%, #E0C068 80%); }
+.flying { background: linear-gradient(180deg, #6B5FCF 40%, #A890F0 80%); }
+.psychic { background: linear-gradient(180deg, #B63058 40%, #F85888 80%); }
+.bug { background: linear-gradient(180deg, #6B7B12 40%, #A8B820 80%); }
+.rock { background: linear-gradient(180deg, #7B6B20 40%, #B8A038 80%); }
+.ghost { background: linear-gradient(180deg, #4A3770 40%, #705898 80%); }
+.dark { background: linear-gradient(180deg, #3F2B2A 40%, #705848 80%); }
+.dragon { background: linear-gradient(180deg, #4410C8 40%, #7038F8 80%); }
+.steel { background: linear-gradient(180deg, #707088 40%, #B8B8D0 80%); }
+.fairy { background: linear-gradient(180deg, #A06A8C 40%, #F0B6D1 80%); }
 
 .container {
     display: flex;

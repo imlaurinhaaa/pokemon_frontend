@@ -7,13 +7,14 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Pagination } from "antd";
 import PokemonCard from "@/components/PokemonCard";
+import Header from "@/components/Header";
 
 export default function PageAPI() {
     const [pokemons, setPokemons] = useState([]);
     const [loading, setLoading] = useState(false);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(50);
-    const [searchTerm, setSearchTerm] = useState(""); // estado da busca
+    const [pageSize, setPageSize] = useState(8);
+    const [searchTerm, setSearchTerm] = useState(""); 
 
     const fetchPokemons = async () => {
         setLoading(true);
@@ -66,9 +67,7 @@ export default function PageAPI() {
 
     return (
         <div className={styles.container}>
-            <header className={styles.header}>
-                <Image src="/images/pokemon.png" alt="Logo" width={400} height={400} />
-            </header>
+            <Header/>
             <div className={styles.content}>
                 <div className={styles.textSection}>
                     <h1 className={styles.title}>⚡ Pokémon API</h1>
@@ -83,26 +82,16 @@ export default function PageAPI() {
                         projetos de análise.
                     </p>
                     <div className={styles.buttonSection}>
-                        <Link
-                            href="/"
-                            className={styles.button}
-                        >
-                            Criar Pokédex
-                        </Link>
-                        <Link
-                            href="/page-project"
-                            className={styles.button}
-                        >
-                            Sobre API
-                        </Link>
+                        <Link href="/" className={styles.button}>Criar Pokédex</Link>
+                        <Link href="/page-project" className={styles.button}>Sobre API</Link>
                     </div>
                 </div>
                 <div className={styles.imageSection}>
                     <Image
                         src="/images/pikachu.gif"
                         alt="Imagem Personagens de Pokemon"
-                        width={300}
-                        height={300}
+                        width={200}
+                        height={200}
                         className={styles.image}
                     />
                 </div>
@@ -121,7 +110,7 @@ export default function PageAPI() {
             ) : (
                 <>
                     <div className={styles.pokemons}>
-                        <div className={styles.pagination}>
+                        <div className={styles.searchContainer}>
                             <div className={styles.inputContainer}>
                                 <Image
                                     src="/images/pokeball.png"
@@ -141,15 +130,7 @@ export default function PageAPI() {
                                     }}
                                 />
                             </div>
-                            <Pagination
-                                total={filteredPokemons.length} // usa a lista filtrada
-                                pageSize={pageSize}
-                                current={currentPage}
-                                showSizeChanger={true}
-                                pageSizeOptions={["100", "200", "300", "400", "500", "600", "720"]}
-                                onChange={handlePageChange}
-                                onShowSizeChange={handlePageSizeChange}
-                            />
+                            
                         </div>
 
                         <div className={styles.cardsContainer}>
@@ -161,6 +142,17 @@ export default function PageAPI() {
                                 />
                             ))}
                         </div>
+                        <div className={styles.pagination}>
+                        <Pagination
+                                total={filteredPokemons.length} 
+                                pageSize={pageSize}
+                                current={currentPage}
+                                showSizeChanger={true}
+                                pageSizeOptions={["20", "30", "40", "50", "60", "70", "80", "90", "100"]}
+                                onChange={handlePageChange}
+                                onShowSizeChange={handlePageSizeChange}
+                            />
+                            </div>
                     </div>
                 </>
             )}

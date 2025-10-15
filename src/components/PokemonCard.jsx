@@ -54,16 +54,7 @@ export default function pokemonCard ({ pokemon, type }) {
                     alt={pokemon.name}
                     className={styles.pokemonImage}
                 />
-                <h3 className={styles.pokemonName}>{pokemon.name}</h3>
-                <p className={styles.pokemonInfo}>Altura: {pokemon.height / 10}m</p>
-                <p className={styles.pokemonInfo}>
-                    Tipo: {pokemon.types.map((t) => t.type.name).join(", ")}
-                </p>
-            </div>
-            <div className={styles.buttonContainer}>
-                <Link href={`/page-api/${pokemon.id}`} className={styles.detailsButton}>
-                    Ver Detalhes
-                </Link>
+                <Link href={`/page-api/${pokemon.id}`} className={styles.pokemonName}>{pokemon.name}</Link>
             </div>
         </div>
     );

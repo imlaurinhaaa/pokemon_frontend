@@ -1,0 +1,12 @@
+.header {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 10rem;
+    backdrop-filter: blur(10px);
+    border-radius: 1.5rem;
+    border: 2px solid rgb(226 232 240);
+    justify-content: center;
+    margin-top: 2rem;
+    position: fixed;
+}
